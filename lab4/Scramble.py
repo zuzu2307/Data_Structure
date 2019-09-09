@@ -13,13 +13,19 @@ while n < i:
 def bottomUp(inputList, percent):
     l = inputList.size()
     p = (int)((percent/100) * l)
-    end = p
-    num = 0
-    while num < end:
-        inputList.append(myList.getNode(num))
-        inputList.removeHead()
+    head = p + 1
+    num = 1
+    while num <= p:
+        End = inputList.getNode(l)
+        print(End)
+        Next = inputList.getNode(num)
+        print(Next)
+        inputList.setLink(End,Next)
         num += 1
-
+        l += 1
+        print('----------------------')
+    
+    inputList.setHead(inputList.getNode(head))
 
 def riffleShuffle(inputList, percent):
     l = inputList.size()
@@ -39,7 +45,7 @@ print(myList)
 print('------------------------------bottomUp----------------------------------------')
 
 bottomUp(myList, percentCut)
-print(myList)
+#print(myList)
 print('----------------------------riffleShuffle-------------------------------------')
 
 #riffleShuffle(myList, percentShuffle)

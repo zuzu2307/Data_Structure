@@ -1,12 +1,13 @@
-import node as ll
-a = ll.Node('A')
-b = ll.Node('B')
-c = ll.Node('C')
-d = ll.Node('D')
+import node
+a = node.Node('A')
+b = node.Node('B')
+c = node.Node('C')
+d = node.Node('D')
 
 a.setNext(b)
 b.setNext(c)
 c.setNext(d)
+
 
 print(a)
 print(a.next)
