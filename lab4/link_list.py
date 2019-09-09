@@ -21,6 +21,13 @@ class List:
     def addHead(self, head):
         self.head = node.Node(head)
 
+    def getNode(self, data):
+        current = self.head
+        while current != None:
+            if current.data == data:
+                return current.data
+            current = current.next
+
     def isEmpty(self):
         return self.head == None
 
