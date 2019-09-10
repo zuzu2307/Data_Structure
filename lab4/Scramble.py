@@ -1,53 +1,54 @@
-import link_list
+import link_list as ll
+import math
 
+def bottomUp(list, percent):
+    n = math.floor(int(percent / 10))
+    for i in range(0, n):
+        list.append(list.removeHead())
+    print('bottomup:', list)
 
-message = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-myList = link_list.List(message[0])
-i = len(message)
-n = 1
-while n < i:
-    myList.append(message[n])
-    n += 1
+def deBottomUp(list, percent):
+    n = math.floor(int(percent / 10))
+    for i in range(0, n):
+        list.addHead(list.removeTail())
+    print('debottomup:', list)
 
+def riffle(list, percent):
+    n = math.floor(int(percent / 10)) 
+    loop = 10 - n
+    if n <= 5:
+        loop = n-1
+    index = 1
+    for i in range(0, loop):
+        temp = list.removeByIndex(n)
+        list.addByIndex(index, temp)
+        n += 1
+        index += 2
+    print('riffle:', list)
 
-def bottomUp(inputList, percent):
-    l = inputList.size()
-    p = (int)((percent/100) * l)
-    head = p + 1
-    num = 1
-    while num <= p:
-        End = inputList.getNode(l)
-        print(End)
-        Next = inputList.getNode(num)
-        print(Next)
-        inputList.setLink(End,Next)
-        num += 1
-        l += 1
-        print('----------------------')
+def deRiffle(list, percent):
+    n = math.floor(int(percent / 10)) 
+    indexToAdd = list.size() - 1
+    if n > 5:
+        n = 10 - n
+    else:
+        n = n - 1
+        indexToAdd = n * 2
+    for i in range(0, n):
+        temp = list.removeByIndex(i + 1)
+        list.addByIndex(indexToAdd, temp)
+    print('deriffle:', list)
+
     
-    inputList.setHead(inputList.getNode(head))
+    
+myList = ll.List()
 
-def riffleShuffle(inputList, percent):
-    l = inputList.size()
-    p = (int)((percent/100) * l)
-    end = p
-    num = 0
-    while p < l:
-        inputList.insert()
-
-
-percentCut = 30
-percentShuffle = 60
-
-
-print(myList.size())
+for i in range(1, 11):
+    myList.append(i)
 print(myList)
-print('------------------------------bottomUp----------------------------------------')
-
-bottomUp(myList, percentCut)
-#print(myList)
-print('----------------------------riffleShuffle-------------------------------------')
-
-#riffleShuffle(myList, percentShuffle)
-#print(myList)
-print('------------------------------------------------------------------------------')
+bottomUp(myList, 30)
+riffle(myList, 60)
+riffle(myList, 30)
+deRiffle(myList, 30)
+deRiffle(myList, 60)
+deBottomUp(myList, 30)
