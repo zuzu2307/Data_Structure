@@ -5,13 +5,13 @@ def bottomUp(list, percent):
     n = math.floor(int(percent / 10))
     for i in range(0, n):
         list.append(list.removeHead())
-    print('bottomup:', list)
+    print('bottomup   : ', list)
 
 def deBottomUp(list, percent):
     n = math.floor(int(percent / 10))
     for i in range(0, n):
         list.addHead(list.removeTail())
-    print('debottomup:', list)
+    print('debottomup : ', list)
 
 def riffle(list, percent):
     n = math.floor(int(percent / 10)) 
@@ -24,7 +24,7 @@ def riffle(list, percent):
         list.addByIndex(index, temp)
         n += 1
         index += 2
-    print('riffle:', list)
+    print('riffle     : ', list)
 
 def deRiffle(list, percent):
     n = math.floor(int(percent / 10)) 
@@ -37,7 +37,7 @@ def deRiffle(list, percent):
     for i in range(0, n):
         temp = list.removeByIndex(i + 1)
         list.addByIndex(indexToAdd, temp)
-    print('deriffle:', list)
+    print('deriffle   : ', list)
 
     
     
@@ -45,7 +45,8 @@ myList = ll.List()
 
 for i in range(1, 11):
     myList.append(i)
-print(myList)
+
+print('message    : ', myList)
 bottomUp(myList, 30)
 riffle(myList, 60)
 riffle(myList, 30)
